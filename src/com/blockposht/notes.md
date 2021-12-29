@@ -1,0 +1,5 @@
+- a blockchain
+- strategies
+- evolution
+
+    
