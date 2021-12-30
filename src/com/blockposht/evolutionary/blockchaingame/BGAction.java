@@ -1,16 +1,15 @@
 package com.blockposht.evolutionary.blockchaingame;
 
-import com.blockposht.blockchain.Block;
 import com.blockposht.evolutionary.Action;
 
 public class BGAction extends Action {
-    private final Block block;
+    private final BGActionType type;
 
-    public BGAction(Block block) {
-        this.block = block;
+    public BGAction(BGActionType type) {
+        this.type = type;
     }
 
-    Block act() {
-        return block; 
+    public BGActionType getType() {
+        return type;
     }
 }

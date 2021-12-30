@@ -2,4 +2,3 @@
 - strategies
 - evolution
 
-    

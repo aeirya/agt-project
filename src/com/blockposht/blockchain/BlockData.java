@@ -11,8 +11,16 @@ public class BlockData {
         this.gas = gas;
     }
 
-    public Boolean isValid() {
+    public boolean isValid() {
         return isValid;
+    }
+
+    public int getFee() {
+        return fee;
+    }
+
+    public int getGas() {
+        return gas;
     }
 
     public static final BlockData validData = new BlockData(true, 0, 0);

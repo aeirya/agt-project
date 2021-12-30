@@ -5,9 +5,8 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import com.blockposht.blockchain.BlockData;
-import com.blockposht.blockchain.UserBlock;
 
-public class ForkfulBlockchain {
+public class ForkfulBlockchain implements IBlockchain {
     private final List<ForkableChain> chains;
 
     public ForkfulBlockchain() {
@@ -15,10 +14,20 @@ public class ForkfulBlockchain {
         chains.add(new ForkableChain());
     }
 
+    public ChainBlock getGenesis() {
+        return chains.get(0).get(0);
+    }
+
     public List<ChainBlock> get(int height) {
         return chains.stream()
             .filter(c -> c.size() > height)
             .map(c -> c.get(height))
+            .collect(Collectors.toList());
+    }
+
+    public List<ChainBlock> getChainTips() {
+        return chains.stream()
+            .map(ForkableChain::getTip)
             .collect(Collectors.toList());
     }
 
@@ -54,23 +63,38 @@ public class ForkfulBlockchain {
             .collect(Collectors.toList());
     }
 
-    public void add(ChainBlock parent, UserBlock block) {
+    public ForkableChain findOne(ChainBlock block) {
+        return chains.stream()
+            .filter(c -> c.contains(block))
+            .findFirst()
+            .orElse(null);
+    }
+
+    public ChainBlock add(ChainBlock parent, UserBlock block) {
         var found = find(parent);
-        if (found.isEmpty()) return;
+        if (found.isEmpty()) return null;
         var tip = found.stream()
             .filter(c -> c.getTip().equals(parent)).findAny();
         // if found, add to tip, else fork
         if (tip.isPresent()) {
-            tip.get().add(block);
+            return tip.get().add(block);
         } else {
             var fork = found.get(0).fork(parent);
-            fork.add(block);
             chains.add(fork);
+            return fork.add(block);
         }
     }
 
     public void add(UserBlock block) {
         getLongestChain().add(block);
+    }
+
+    public IBlock getPredecessor(IBlock block) {
+        return getPredecessor((ChainBlock) block);
+    }
+    
+    public IBlock getPredecessor(ChainBlock block) {
+        return find(block).get(0).getPredecessor(block);
     }
 
     public static void main(String[] args) {

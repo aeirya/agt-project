@@ -1,46 +1,62 @@
 package com.blockposht.blockchain.forkable;
 
+import java.math.BigInteger;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.UUID;
+
 import com.blockposht.blockchain.BlockData;
-import com.blockposht.blockchain.UserBlock;
 
-public class ChainBlock {
+public class ChainBlock implements IBlock {
     int height;
-    long hash;
-    long prevHash;  // hash of previous block
+    String hash;
+    String prevHash;  // hash of previous block
     BlockData data;
+    Date proposeDate;
 
-    public ChainBlock(int height, long prevHash, BlockData data) {
+    public ChainBlock(int height, String prevHash, BlockData data, Date proposeDate) {
         this.height = height;
         this.data = data;
         this.prevHash = prevHash;
-        this.hash = computeHash(height, prevHash);
+        this.proposeDate = proposeDate;
+        this.hash = computeHash(height, prevHash, proposeDate);
     }
 
     public static ChainBlock of(UserBlock block, ChainBlock parent, int height) {
-        return new ChainBlock(height, parent.hash, block.data);
+        return new ChainBlock(height, parent.hash, block.data, block.proposeDate);
     }
     
     public static ChainBlock genesis() {
-        return new ChainBlock(0, 0, BlockData.validData);
+        return new ChainBlock(0, "0", BlockData.validData, 
+            Calendar.getInstance().getTime()
+        );
     }
 
     @Override
     public boolean equals(Object other) {
         if (other instanceof ChainBlock)
             return hash == ((ChainBlock)other).hash;
-        // if (other instanceof UserBlock)
-        //     return hash == ((UserBlock)other).computeHash();
-
         return false;
     }
 
-    private static long computeHash(int height, long prevHash) {
-        return prevHash * 10 + height;
+    // @Override
+    // public int hashCode() {
+    //     return ;
+    // }
+
+    private static String computeHash(int height, String prevHash, Date proposeDate) {
+        // tood: change this
+        return UUID.randomUUID().toString();
     }
 
     @Override
     public String toString() {
         return String.valueOf(hash);
+    }
+
+    @Override
+    public BlockData getData() {
+        return data;
     }
     
 }

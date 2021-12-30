@@ -3,8 +3,6 @@ package com.blockposht.blockchain.forkable;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.blockposht.blockchain.UserBlock;
-
 public class ForkableChain {
     private final ForkableChain forkedChain;
     private final int forkedChainSize;
@@ -53,10 +51,11 @@ public class ForkableChain {
         return get(block.height-1);
     }
 
-    public void add(UserBlock block) {
+    public ChainBlock add(UserBlock block) {
         // add block to the end
-        chain.add(ChainBlock.of(block, getTip(), size()));
-
+        var cb = ChainBlock.of(block, getTip(), size());
+        chain.add(cb);
+        return cb;
     }
 
     public ForkableChain fork(ChainBlock block) {

@@ -1,8 +1,8 @@
 package com.blockposht.evolutionary;
 
 public abstract class Player<E extends IGame> {
-    private Strategy<E> strategy;
-    private final int id;
+    protected Strategy<E> strategy;
+    protected final int id;
     
     protected Player(int id, Strategy<E> strategy) {
         this.id = id;

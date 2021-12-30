@@ -1,9 +1,11 @@
-package com.blockposht.blockchain;
+package com.blockposht.blockchain.forkable;
 
 import java.util.Calendar;
 import java.util.Date;
 
-public class UserBlock {
+import com.blockposht.blockchain.BlockData;
+
+public class UserBlock implements IBlock {
     public final Date proposeDate;
     public final BlockData data;
 
@@ -16,6 +18,10 @@ public class UserBlock {
         this(Calendar.getInstance().getTime(), data);
     }
 
+    public UserBlock(Boolean isValid, int fee, int gas) {
+        this(new BlockData(isValid, fee, gas));
+    }
+
     long computeHash(int height) {
         return proposeDate.getTime()*10 + height;
     }
@@ -26,5 +32,9 @@ public class UserBlock {
         }
     }
 
+    @Override
+    public BlockData getData() {
+        return data;
+    }
 
 }
