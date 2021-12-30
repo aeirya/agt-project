@@ -5,14 +5,21 @@ import com.blockposht.evolutionary.Strategy;
 
 public class BGPlayer extends Player<BlockchainGame> {
 
+    private int money;
+    private int lastMatchReward;
+    
     protected BGPlayer(int id, Strategy<BlockchainGame> strategy) {
         super(id, strategy);
-        //TODO Auto-generated constructor stub
+        money = 0;
     }
 
     @Override
     public void getReward(int reward) {
-        // do nothing
+        // if (reward < lastMatchReward) then switch back
+        money += reward;
+
+
+        // todo: reflect uppon
     }
     
 }
