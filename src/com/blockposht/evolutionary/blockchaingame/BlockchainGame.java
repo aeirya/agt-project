@@ -10,6 +10,7 @@ import com.blockposht.blockchain.Block;
 import com.blockposht.blockchain.BlockData;
 import com.blockposht.blockchain.SmartChain;
 import com.blockposht.blockchain.forkable.ChainBlock;
+import com.blockposht.blockchain.forkable.ForkableChain;
 import com.blockposht.blockchain.forkable.ForkfulBlockchain;
 import com.blockposht.blockchain.forkable.IBlock;
 import com.blockposht.blockchain.forkable.UserBlock;
@@ -23,6 +24,7 @@ public class BlockchainGame implements IGame {
     private final CyclicList<BGActionMine> recentBlocks;
     private final int recentBlocksMaxSize = 6;
     private final List<BGPlayer> players;
+    private int round = 0;
 
     public BlockchainGame(List<BGPlayer> players) {
         chain = new ForkfulBlockchain();
@@ -74,6 +76,7 @@ public class BlockchainGame implements IGame {
         if (action.getType() == BGActionType.MINE) {
             mineBlock((BGActionMine) action, player);
         }
+        ++round;
     }
 
     private void mineBlock(BGActionMine action, int player) {
@@ -96,6 +99,23 @@ public class BlockchainGame implements IGame {
         return chain.getPredecessor(blk);
     }
 
+    public boolean isCannon(ChainBlock block) {
+        if (block == null) return false;
 
+        var ch = chain.getLongestChain();
+        return (ch.contains(block) && ch.size() - block.getHeight() > 0);
+    }
+
+    public ForkableChain getLongestChain() {
+        return chain.getLongestChain();
+    }
+
+    public List<ForkableChain> getNextLongestChain(ForkableChain c) {
+        return chain.getNextLongestChain(c);
+    }
+
+    public List<ChainBlock> getBlocks(int height) {
+        return chain.get(height);
+    }
     
 }

@@ -4,6 +4,7 @@ import com.blockposht.evolutionary.Strategy;
 
 import javax.swing.text.html.HTMLDocument.HTMLReader.BlockAction;
 
+import com.blockposht.blockchain.forkable.ChainBlock;
 import com.blockposht.blockchain.forkable.IBlock;
 import com.blockposht.evolutionary.Action;
 
@@ -18,7 +19,7 @@ public class HonestStrategy extends Strategy<BlockchainGame> {
         
         if (action.getType() == BGActionType.MINE) {
             return evaluate(env, (BGActionMine) action);
-        }
+    }
 
         return 0;
     }
@@ -28,11 +29,25 @@ public class HonestStrategy extends Strategy<BlockchainGame> {
         if (!act.getBlock().isValid()) return 0;
 
         // todo: also check other forks
-        IBlock chosenBlock = env.getMainChainTip();
-        while (!chosenBlock.isValid()) {
-            chosenBlock = env.getPredecessor(chosenBlock);
+        ChainBlock longestChainTip = (ChainBlock) env.getMainChainTip();
+        // while (!chosenBlockOfLongestChain.isValid()) {
+        //     chosenBlockOfLongestChain = env.getPredecessor(chosenBlockOfLongestChain);
+        // }
+
+
+        // var longestChains = env.getNextLongestChain(env.getLongestChain());
+        // while (true) {
+        //     longestChains.stream().filter(c -> c.getTip().isValid())
+        // }
+
+        for (int h = longestChainTip.getHeight(); h>=0 ;--h) {
+            var blocks = env.getBlocks(h);
+            if (blocks.stream().anyMatch(IBlock::isValid)) {
+                if (blocks.contains(act.getParent())) return 1;
+                else return 0;
+            }
         }
-        if (chosenBlock.equals(act.getParent())) return 1;
+
         return 0;
     }
     

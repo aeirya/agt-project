@@ -5,8 +5,10 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import com.blockposht.blockchain.BlockData;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
 public class ForkfulBlockchain implements IBlockchain {
+    @JsonSerialize
     private final List<ForkableChain> chains;
 
     public ForkfulBlockchain() {
@@ -46,7 +48,7 @@ public class ForkfulBlockchain implements IBlockchain {
             .collect(Collectors.toList());
         
         // only returning chains of the same size
-        var longest = list.stream().reduce((c,d)->c.size()>d.size()?c:d);
+        var longest = list.stream().reduce((c,d)-> c.size()>d.size()?c:d);
         // checking to turn of warning
         if (longest.isEmpty()) return new ArrayList<>();
         
@@ -97,15 +99,16 @@ public class ForkfulBlockchain implements IBlockchain {
         return find(block).get(0).getPredecessor(block);
     }
 
-    public static void main(String[] args) {
-        var blockchain = new ForkfulBlockchain();
-        blockchain.add(new UserBlock.Dummy());
-        blockchain.add(new UserBlock.Dummy());
-        blockchain.add(new UserBlock.Dummy());
 
-        var chain = blockchain.getLongestChain();
-        var prev = chain.getPredecessor(chain.getTip());
-        blockchain.add(prev, new UserBlock(new BlockData(false, 2, 3)));
-        System.out.println();
-    }
+    // public static void main(String[] args) {
+    //     var blockchain = new ForkfulBlockchain();
+    //     blockchain.add(new UserBlock.Dummy());
+    //     blockchain.add(new UserBlock.Dummy());
+    //     blockchain.add(new UserBlock.Dummy());
+
+    //     var chain = blockchain.getLongestChain();
+    //     var prev = chain.getPredecessor(chain.getTip());
+    //     blockchain.add(prev, new UserBlock(new BlockData(false, 2, 3)));
+    //     System.out.println();
+    // }
 }

@@ -1,0 +1,91 @@
+Date : 2021-12-30 23:03:45
+Directory : /Users/madscientist/agt-project
+Total : 54 files,  966 codes, 174 comments, 379 blanks, all 1519 lines
+
+Languages
++----------+------------+------------+------------+------------+------------+
+| language | files      | code       | comment    | blank      | total      |
++----------+------------+------------+------------+------------+------------+
+| Java     |         52 |        962 |        174 |        377 |      1,513 |
+| Markdown |          2 |          4 |          0 |          2 |          6 |
++----------+------------+------------+------------+------------+------------+
+
+Directories
++-----------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                                                                      | files      | code       | comment    | blank      | total      |
++-----------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                                                                         |         54 |        966 |        174 |        379 |      1,519 |
+| src                                                                                                       |         53 |        965 |        174 |        379 |      1,518 |
+| src/com                                                                                                   |         53 |        965 |        174 |        379 |      1,518 |
+| src/com/blockposht                                                                                        |         53 |        965 |        174 |        379 |      1,518 |
+| src/com/blockposht/archive                                                                                |          8 |         42 |        115 |         60 |        217 |
+| src/com/blockposht/archive/sha                                                                            |          3 |         41 |          4 |         17 |         62 |
+| src/com/blockposht/blockchain                                                                             |         14 |        381 |         21 |        123 |        525 |
+| src/com/blockposht/blockchain/forkable                                                                    |          6 |        234 |          9 |         69 |        312 |
+| src/com/blockposht/evolutionary                                                                           |         26 |        494 |         38 |        177 |        709 |
+| src/com/blockposht/evolutionary/blockchaingame                                                            |         12 |        265 |         27 |         94 |        386 |
+| src/com/blockposht/evolutionary/coingame                                                                  |          7 |        166 |          0 |         55 |        221 |
+| src/com/blockposht/interfaces                                                                             |          1 |          6 |          0 |          3 |          9 |
+| src/com/blockposht/test                                                                                   |          2 |         32 |          0 |         11 |         43 |
++-----------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++-----------------------------------------------------------------------------------------------------------+----------+------------+------------+------------+------------+
+| filename                                                                                                  | language | code       | comment    | blank      | total      |
++-----------------------------------------------------------------------------------------------------------+----------+------------+------------+------------+------------+
+| /Users/madscientist/agt-project/README.md                                                                 | Markdown |          1 |          0 |          0 |          1 |
+| /Users/madscientist/agt-project/src/com/blockposht/App.java                                               | Java     |          7 |          0 |          3 |         10 |
+| /Users/madscientist/agt-project/src/com/blockposht/archive/BlockEncoder.java                              | Java     |          1 |          9 |          5 |         15 |
+| /Users/madscientist/agt-project/src/com/blockposht/archive/BlockFactory.java                              | Java     |          0 |         18 |          8 |         26 |
+| /Users/madscientist/agt-project/src/com/blockposht/archive/BlockTree.java                                 | Java     |          0 |          7 |          4 |         11 |
+| /Users/madscientist/agt-project/src/com/blockposht/archive/Blockchain.java                                | Java     |          0 |         49 |         14 |         63 |
+| /Users/madscientist/agt-project/src/com/blockposht/archive/Tree.java                                      | Java     |          0 |         28 |         12 |         40 |
+| /Users/madscientist/agt-project/src/com/blockposht/archive/sha/IHashComputer.java                         | Java     |          4 |          0 |          2 |          6 |
+| /Users/madscientist/agt-project/src/com/blockposht/archive/sha/Sha256.java                                | Java     |         15 |          0 |          9 |         24 |
+| /Users/madscientist/agt-project/src/com/blockposht/archive/sha/ShaUtils.java                              | Java     |         22 |          4 |          6 |         32 |
+| /Users/madscientist/agt-project/src/com/blockposht/blockchain/Block.java                                  | Java     |         33 |          0 |          9 |         42 |
+| /Users/madscientist/agt-project/src/com/blockposht/blockchain/BlockData.java                              | Java     |         21 |          0 |          8 |         29 |
+| /Users/madscientist/agt-project/src/com/blockposht/blockchain/Chain.java                                  | Java     |         66 |         12 |         24 |        102 |
+| /Users/madscientist/agt-project/src/com/blockposht/blockchain/DummyBlock.java                             | Java     |          7 |          0 |          3 |         10 |
+| /Users/madscientist/agt-project/src/com/blockposht/blockchain/DummyBlockEncoder.java                      | Java     |          6 |          0 |          2 |          8 |
+| /Users/madscientist/agt-project/src/com/blockposht/blockchain/IBlockEncoder.java                          | Java     |          4 |          0 |          2 |          6 |
+| /Users/madscientist/agt-project/src/com/blockposht/blockchain/IBlockchain.java                            | Java     |          4 |          0 |          3 |          7 |
+| /Users/madscientist/agt-project/src/com/blockposht/blockchain/SmartChain.java                             | Java     |          6 |          0 |          3 |          9 |
+| /Users/madscientist/agt-project/src/com/blockposht/blockchain/forkable/ChainBlock.java                    | Java     |         45 |          5 |         13 |         63 |
+| /Users/madscientist/agt-project/src/com/blockposht/blockchain/forkable/ForkableChain.java                 | Java     |         56 |          1 |         17 |         74 |
+| /Users/madscientist/agt-project/src/com/blockposht/blockchain/forkable/ForkfulBlockchain.java             | Java     |         88 |          3 |         21 |        112 |
+| /Users/madscientist/agt-project/src/com/blockposht/blockchain/forkable/IBlock.java                        | Java     |         11 |          0 |          5 |         16 |
+| /Users/madscientist/agt-project/src/com/blockposht/blockchain/forkable/IBlockchain.java                   | Java     |          4 |          0 |          2 |          6 |
+| /Users/madscientist/agt-project/src/com/blockposht/blockchain/forkable/UserBlock.java                     | Java     |         30 |          0 |         11 |         41 |
+| /Users/madscientist/agt-project/src/com/blockposht/evolutionary/Action.java                               | Java     |          3 |          0 |          3 |          6 |
+| /Users/madscientist/agt-project/src/com/blockposht/evolutionary/EnumTest.java                             | Java     |         16 |          5 |          5 |         26 |
+| /Users/madscientist/agt-project/src/com/blockposht/evolutionary/IGame.java                                | Java     |          6 |          0 |          3 |          9 |
+| /Users/madscientist/agt-project/src/com/blockposht/evolutionary/Miner.java                                | Java     |          5 |          0 |          2 |          7 |
+| /Users/madscientist/agt-project/src/com/blockposht/evolutionary/MixedStrategy.java                        | Java     |          0 |          6 |          3 |          9 |
+| /Users/madscientist/agt-project/src/com/blockposht/evolutionary/Player.java                               | Java     |         14 |          0 |          5 |         19 |
+| /Users/madscientist/agt-project/src/com/blockposht/evolutionary/Strategy.java                             | Java     |         19 |          0 |          7 |         26 |
+| /Users/madscientist/agt-project/src/com/blockposht/evolutionary/blockchaingame/BGAction.java              | Java     |         11 |          0 |          5 |         16 |
+| /Users/madscientist/agt-project/src/com/blockposht/evolutionary/blockchaingame/BGActionMine.java          | Java     |         30 |          0 |          9 |         39 |
+| /Users/madscientist/agt-project/src/com/blockposht/evolutionary/blockchaingame/BGActionType.java          | Java     |          4 |          0 |          2 |          6 |
+| /Users/madscientist/agt-project/src/com/blockposht/evolutionary/blockchaingame/BGGameParameters.java      | Java     |         19 |          0 |          7 |         26 |
+| /Users/madscientist/agt-project/src/com/blockposht/evolutionary/blockchaingame/BGManager.java             | Java     |         23 |          2 |          7 |         32 |
+| /Users/madscientist/agt-project/src/com/blockposht/evolutionary/blockchaingame/BGPlayer.java              | Java     |         15 |          2 |          9 |         26 |
+| /Users/madscientist/agt-project/src/com/blockposht/evolutionary/blockchaingame/BGRationalPlayer.java      | Java     |         12 |          1 |          6 |         19 |
+| /Users/madscientist/agt-project/src/com/blockposht/evolutionary/blockchaingame/BGStrategies.java          | Java     |          9 |          0 |          5 |         14 |
+| /Users/madscientist/agt-project/src/com/blockposht/evolutionary/blockchaingame/BlockchainGame.java        | Java     |         66 |         15 |         21 |        102 |
+| /Users/madscientist/agt-project/src/com/blockposht/evolutionary/blockchaingame/CyclicList.java            | Java     |         30 |          0 |          7 |         37 |
+| /Users/madscientist/agt-project/src/com/blockposht/evolutionary/blockchaingame/HonestStrategy.java        | Java     |         27 |          2 |         11 |         40 |
+| /Users/madscientist/agt-project/src/com/blockposht/evolutionary/blockchaingame/NoobMaliciousStrategy.java | Java     |         19 |          5 |          5 |         29 |
+| /Users/madscientist/agt-project/src/com/blockposht/evolutionary/coingame/CoinGame.java                    | Java     |         69 |          0 |         15 |         84 |
+| /Users/madscientist/agt-project/src/com/blockposht/evolutionary/coingame/CoinGameAction.java              | Java     |         17 |          0 |          7 |         24 |
+| /Users/madscientist/agt-project/src/com/blockposht/evolutionary/coingame/CoinGamePlayer.java              | Java     |         22 |          0 |          8 |         30 |
+| /Users/madscientist/agt-project/src/com/blockposht/evolutionary/coingame/CoinGameTest.java                | Java     |         14 |          0 |          7 |         21 |
+| /Users/madscientist/agt-project/src/com/blockposht/evolutionary/coingame/CopycatPlayer.java               | Java     |         20 |          0 |          7 |         27 |
+| /Users/madscientist/agt-project/src/com/blockposht/evolutionary/coingame/NaivePlayer.java                 | Java     |         12 |          0 |          6 |         18 |
+| /Users/madscientist/agt-project/src/com/blockposht/evolutionary/coingame/TheifPlayer.java                 | Java     |         12 |          0 |          5 |         17 |
+| /Users/madscientist/agt-project/src/com/blockposht/interfaces/IBlockchain.java                            | Java     |          6 |          0 |          3 |          9 |
+| /Users/madscientist/agt-project/src/com/blockposht/notes.md                                               | Markdown |          3 |          0 |          2 |          5 |
+| /Users/madscientist/agt-project/src/com/blockposht/test/BlockTest.java                                    | Java     |         17 |          0 |          4 |         21 |
+| /Users/madscientist/agt-project/src/com/blockposht/test/MemoryTest.java                                   | Java     |         15 |          0 |          7 |         22 |
+| Total                                                                                                     |          |        966 |        174 |        379 |      1,519 |
++-----------------------------------------------------------------------------------------------------------+----------+------------+------------+------------+------------+

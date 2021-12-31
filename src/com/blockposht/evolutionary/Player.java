@@ -9,10 +9,17 @@ public abstract class Player<E extends IGame> {
         this.strategy = strategy;
     }
 
+    /*
+        todo: each player actually has a differnet reward evaluation
+    */
     protected abstract void getReward(int reward);
     
     public void play(E game) {
-        var act = strategy.decide(game, game.getActions());
+        var act = decide(game);
         game.play(act, id);
+    }
+
+    protected Action decide(E game) {
+        return strategy.decide(game, game.getActions());
     }
 }

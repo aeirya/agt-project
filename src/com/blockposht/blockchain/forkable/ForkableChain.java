@@ -27,7 +27,7 @@ public class ForkableChain {
         this.forkedChainSize = forkedChainSize;  
     }
 
-    int size() {
+    public int size() {
         return chain.size() + forkedChainSize;
     }  
 

@@ -58,5 +58,9 @@ public class ChainBlock implements IBlock {
     public BlockData getData() {
         return data;
     }
+
+    public int getHeight() {
+        return height;
+    }
     
 }

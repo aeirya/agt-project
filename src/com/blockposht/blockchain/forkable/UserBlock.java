@@ -6,8 +6,10 @@ import java.util.Date;
 import com.blockposht.blockchain.BlockData;
 
 public class UserBlock implements IBlock {
+    // todo: add proposer user id
     public final Date proposeDate;
     public final BlockData data;
+    public final int userID;
 
     public UserBlock(Date proposeDate, BlockData data) {
         this.proposeDate = proposeDate;

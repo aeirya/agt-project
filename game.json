@@ -1,0 +1,731 @@
+{
+  "chain": {
+    "chains": [
+      {
+        "forkedChainSize": 0,
+        "chain": [
+          {
+            "height": 0,
+            "hash": "1bea9021-6f87-4f2f-85f3-7aa40e2be3fb",
+            "prevHash": "0",
+            "data": {
+              "isValid": true,
+              "fee": 0,
+              "gas": 0
+            },
+            "proposeDate": "Dec 31, 2021, 5:47:22 PM"
+          },
+          {
+            "height": 1,
+            "hash": "9bbd1080-76ea-4577-af3d-d01a224148a6",
+            "prevHash": "1bea9021-6f87-4f2f-85f3-7aa40e2be3fb",
+            "data": {
+              "isValid": true,
+              "fee": 20,
+              "gas": 10
+            },
+            "proposeDate": "Dec 31, 2021, 5:47:22 PM"
+          },
+          {
+            "height": 2,
+            "hash": "9ad4668b-74ee-45e5-ac3f-27ebd92c0bd6",
+            "prevHash": "9bbd1080-76ea-4577-af3d-d01a224148a6",
+            "data": {
+              "isValid": true,
+              "fee": 20,
+              "gas": 10
+            },
+            "proposeDate": "Dec 31, 2021, 5:47:22 PM"
+          },
+          {
+            "height": 3,
+            "hash": "0f31c31c-6481-40e6-b23e-6e70393c39bc",
+            "prevHash": "9ad4668b-74ee-45e5-ac3f-27ebd92c0bd6",
+            "data": {
+              "isValid": false,
+              "fee": 100,
+              "gas": 10
+            },
+            "proposeDate": "Dec 31, 2021, 5:47:22 PM"
+          }
+        ]
+      },
+      {
+        "forkedChain": {
+          "forkedChainSize": 0,
+          "chain": [
+            {
+              "height": 0,
+              "hash": "1bea9021-6f87-4f2f-85f3-7aa40e2be3fb",
+              "prevHash": "0",
+              "data": {
+                "isValid": true,
+                "fee": 0,
+                "gas": 0
+              },
+              "proposeDate": "Dec 31, 2021, 5:47:22 PM"
+            },
+            {
+              "height": 1,
+              "hash": "9bbd1080-76ea-4577-af3d-d01a224148a6",
+              "prevHash": "1bea9021-6f87-4f2f-85f3-7aa40e2be3fb",
+              "data": {
+                "isValid": true,
+                "fee": 20,
+                "gas": 10
+              },
+              "proposeDate": "Dec 31, 2021, 5:47:22 PM"
+            },
+            {
+              "height": 2,
+              "hash": "9ad4668b-74ee-45e5-ac3f-27ebd92c0bd6",
+              "prevHash": "9bbd1080-76ea-4577-af3d-d01a224148a6",
+              "data": {
+                "isValid": true,
+                "fee": 20,
+                "gas": 10
+              },
+              "proposeDate": "Dec 31, 2021, 5:47:22 PM"
+            },
+            {
+              "height": 3,
+              "hash": "0f31c31c-6481-40e6-b23e-6e70393c39bc",
+              "prevHash": "9ad4668b-74ee-45e5-ac3f-27ebd92c0bd6",
+              "data": {
+                "isValid": false,
+                "fee": 100,
+                "gas": 10
+              },
+              "proposeDate": "Dec 31, 2021, 5:47:22 PM"
+            }
+          ]
+        },
+        "forkedChainSize": 3,
+        "chain": [
+          {
+            "height": 3,
+            "hash": "6c839cd9-0674-4abb-a921-a7f72a16a2b3",
+            "prevHash": "9ad4668b-74ee-45e5-ac3f-27ebd92c0bd6",
+            "data": {
+              "isValid": true,
+              "fee": 20,
+              "gas": 10
+            },
+            "proposeDate": "Dec 31, 2021, 5:47:22 PM"
+          },
+          {
+            "height": 4,
+            "hash": "cb9f9ac9-ed90-4fcd-b720-38feeaed69fe",
+            "prevHash": "6c839cd9-0674-4abb-a921-a7f72a16a2b3",
+            "data": {
+              "isValid": true,
+              "fee": 20,
+              "gas": 10
+            },
+            "proposeDate": "Dec 31, 2021, 5:47:22 PM"
+          },
+          {
+            "height": 5,
+            "hash": "42f2fdd0-cfd8-4aed-aad6-65672b234a7f",
+            "prevHash": "cb9f9ac9-ed90-4fcd-b720-38feeaed69fe",
+            "data": {
+              "isValid": true,
+              "fee": 20,
+              "gas": 10
+            },
+            "proposeDate": "Dec 31, 2021, 5:47:22 PM"
+          },
+          {
+            "height": 6,
+            "hash": "2058f6ca-3e46-4cc1-abb8-460be6b6b7dd",
+            "prevHash": "42f2fdd0-cfd8-4aed-aad6-65672b234a7f",
+            "data": {
+              "isValid": true,
+              "fee": 20,
+              "gas": 10
+            },
+            "proposeDate": "Dec 31, 2021, 5:47:22 PM"
+          },
+          {
+            "height": 7,
+            "hash": "7c823a2d-5c45-4fe2-a446-7157a46f7e40",
+            "prevHash": "2058f6ca-3e46-4cc1-abb8-460be6b6b7dd",
+            "data": {
+              "isValid": true,
+              "fee": 20,
+              "gas": 10
+            },
+            "proposeDate": "Dec 31, 2021, 5:47:22 PM"
+          },
+          {
+            "height": 8,
+            "hash": "fdb89822-4f16-450e-9437-442a3aa2b5a9",
+            "prevHash": "7c823a2d-5c45-4fe2-a446-7157a46f7e40",
+            "data": {
+              "isValid": true,
+              "fee": 20,
+              "gas": 10
+            },
+            "proposeDate": "Dec 31, 2021, 5:47:22 PM"
+          },
+          {
+            "height": 9,
+            "hash": "62974cdb-8bb0-4f5f-ac27-5dd2952136a3",
+            "prevHash": "fdb89822-4f16-450e-9437-442a3aa2b5a9",
+            "data": {
+              "isValid": true,
+              "fee": 20,
+              "gas": 10
+            },
+            "proposeDate": "Dec 31, 2021, 5:47:22 PM"
+          },
+          {
+            "height": 10,
+            "hash": "ce57b66b-8283-4469-9caf-0b716a0de5c7",
+            "prevHash": "62974cdb-8bb0-4f5f-ac27-5dd2952136a3",
+            "data": {
+              "isValid": true,
+              "fee": 20,
+              "gas": 10
+            },
+            "proposeDate": "Dec 31, 2021, 5:47:22 PM"
+          },
+          {
+            "height": 11,
+            "hash": "eaf6fa5d-5577-405d-9829-c9074340960c",
+            "prevHash": "ce57b66b-8283-4469-9caf-0b716a0de5c7",
+            "data": {
+              "isValid": true,
+              "fee": 20,
+              "gas": 10
+            },
+            "proposeDate": "Dec 31, 2021, 5:47:22 PM"
+          },
+          {
+            "height": 12,
+            "hash": "20c3a042-30c0-43d0-aa9b-284e03f14d40",
+            "prevHash": "eaf6fa5d-5577-405d-9829-c9074340960c",
+            "data": {
+              "isValid": true,
+              "fee": 20,
+              "gas": 10
+            },
+            "proposeDate": "Dec 31, 2021, 5:47:22 PM"
+          },
+          {
+            "height": 13,
+            "hash": "a0da1386-c7f3-43d4-8fc4-0ebc6fbcd61f",
+            "prevHash": "20c3a042-30c0-43d0-aa9b-284e03f14d40",
+            "data": {
+              "isValid": true,
+              "fee": 20,
+              "gas": 10
+            },
+            "proposeDate": "Dec 31, 2021, 5:47:22 PM"
+          },
+          {
+            "height": 14,
+            "hash": "63ac6e87-f734-481c-8fff-7db5b4bb1951",
+            "prevHash": "a0da1386-c7f3-43d4-8fc4-0ebc6fbcd61f",
+            "data": {
+              "isValid": true,
+              "fee": 20,
+              "gas": 10
+            },
+            "proposeDate": "Dec 31, 2021, 5:47:22 PM"
+          },
+          {
+            "height": 15,
+            "hash": "4358b557-7e77-42ea-a765-5356c3071065",
+            "prevHash": "63ac6e87-f734-481c-8fff-7db5b4bb1951",
+            "data": {
+              "isValid": true,
+              "fee": 20,
+              "gas": 10
+            },
+            "proposeDate": "Dec 31, 2021, 5:47:22 PM"
+          },
+          {
+            "height": 16,
+            "hash": "7ef3650d-7fd8-482e-b88a-da0e0b209bee",
+            "prevHash": "4358b557-7e77-42ea-a765-5356c3071065",
+            "data": {
+              "isValid": true,
+              "fee": 20,
+              "gas": 10
+            },
+            "proposeDate": "Dec 31, 2021, 5:47:22 PM"
+          },
+          {
+            "height": 17,
+            "hash": "aad0bba3-aee6-42c2-b9a1-7cb4d2cb477d",
+            "prevHash": "7ef3650d-7fd8-482e-b88a-da0e0b209bee",
+            "data": {
+              "isValid": true,
+              "fee": 20,
+              "gas": 10
+            },
+            "proposeDate": "Dec 31, 2021, 5:47:22 PM"
+          },
+          {
+            "height": 18,
+            "hash": "b8d4d762-f80e-42a1-b282-d85837bb9b4b",
+            "prevHash": "aad0bba3-aee6-42c2-b9a1-7cb4d2cb477d",
+            "data": {
+              "isValid": true,
+              "fee": 20,
+              "gas": 10
+            },
+            "proposeDate": "Dec 31, 2021, 5:47:22 PM"
+          },
+          {
+            "height": 19,
+            "hash": "cb00729c-c865-4f52-a355-47125f5af840",
+            "prevHash": "b8d4d762-f80e-42a1-b282-d85837bb9b4b",
+            "data": {
+              "isValid": true,
+              "fee": 20,
+              "gas": 10
+            },
+            "proposeDate": "Dec 31, 2021, 5:47:22 PM"
+          }
+        ]
+      }
+    ]
+  },
+  "recentBlocks": {
+    "maxSize": 6,
+    "items": [
+      {
+        "parent": {
+          "height": 16,
+          "hash": "7ef3650d-7fd8-482e-b88a-da0e0b209bee",
+          "prevHash": "4358b557-7e77-42ea-a765-5356c3071065",
+          "data": {
+            "isValid": true,
+            "fee": 20,
+            "gas": 10
+          },
+          "proposeDate": "Dec 31, 2021, 5:47:22 PM"
+        },
+        "block": {
+          "proposeDate": "Dec 31, 2021, 5:47:22 PM",
+          "data": {
+            "isValid": true,
+            "fee": 20,
+            "gas": 10
+          }
+        },
+        "chainBlock": {
+          "height": 17,
+          "hash": "aad0bba3-aee6-42c2-b9a1-7cb4d2cb477d",
+          "prevHash": "7ef3650d-7fd8-482e-b88a-da0e0b209bee",
+          "data": {
+            "isValid": true,
+            "fee": 20,
+            "gas": 10
+          },
+          "proposeDate": "Dec 31, 2021, 5:47:22 PM"
+        },
+        "type": "MINE"
+      },
+      {
+        "parent": {
+          "height": 17,
+          "hash": "aad0bba3-aee6-42c2-b9a1-7cb4d2cb477d",
+          "prevHash": "7ef3650d-7fd8-482e-b88a-da0e0b209bee",
+          "data": {
+            "isValid": true,
+            "fee": 20,
+            "gas": 10
+          },
+          "proposeDate": "Dec 31, 2021, 5:47:22 PM"
+        },
+        "block": {
+          "proposeDate": "Dec 31, 2021, 5:47:22 PM",
+          "data": {
+            "isValid": true,
+            "fee": 20,
+            "gas": 10
+          }
+        },
+        "chainBlock": {
+          "height": 18,
+          "hash": "b8d4d762-f80e-42a1-b282-d85837bb9b4b",
+          "prevHash": "aad0bba3-aee6-42c2-b9a1-7cb4d2cb477d",
+          "data": {
+            "isValid": true,
+            "fee": 20,
+            "gas": 10
+          },
+          "proposeDate": "Dec 31, 2021, 5:47:22 PM"
+        },
+        "type": "MINE"
+      },
+      {
+        "parent": {
+          "height": 18,
+          "hash": "b8d4d762-f80e-42a1-b282-d85837bb9b4b",
+          "prevHash": "aad0bba3-aee6-42c2-b9a1-7cb4d2cb477d",
+          "data": {
+            "isValid": true,
+            "fee": 20,
+            "gas": 10
+          },
+          "proposeDate": "Dec 31, 2021, 5:47:22 PM"
+        },
+        "block": {
+          "proposeDate": "Dec 31, 2021, 5:47:22 PM",
+          "data": {
+            "isValid": true,
+            "fee": 20,
+            "gas": 10
+          }
+        },
+        "chainBlock": {
+          "height": 19,
+          "hash": "cb00729c-c865-4f52-a355-47125f5af840",
+          "prevHash": "b8d4d762-f80e-42a1-b282-d85837bb9b4b",
+          "data": {
+            "isValid": true,
+            "fee": 20,
+            "gas": 10
+          },
+          "proposeDate": "Dec 31, 2021, 5:47:22 PM"
+        },
+        "type": "MINE"
+      },
+      {
+        "parent": {
+          "height": 13,
+          "hash": "a0da1386-c7f3-43d4-8fc4-0ebc6fbcd61f",
+          "prevHash": "20c3a042-30c0-43d0-aa9b-284e03f14d40",
+          "data": {
+            "isValid": true,
+            "fee": 20,
+            "gas": 10
+          },
+          "proposeDate": "Dec 31, 2021, 5:47:22 PM"
+        },
+        "block": {
+          "proposeDate": "Dec 31, 2021, 5:47:22 PM",
+          "data": {
+            "isValid": true,
+            "fee": 20,
+            "gas": 10
+          }
+        },
+        "chainBlock": {
+          "height": 14,
+          "hash": "63ac6e87-f734-481c-8fff-7db5b4bb1951",
+          "prevHash": "a0da1386-c7f3-43d4-8fc4-0ebc6fbcd61f",
+          "data": {
+            "isValid": true,
+            "fee": 20,
+            "gas": 10
+          },
+          "proposeDate": "Dec 31, 2021, 5:47:22 PM"
+        },
+        "type": "MINE"
+      },
+      {
+        "parent": {
+          "height": 14,
+          "hash": "63ac6e87-f734-481c-8fff-7db5b4bb1951",
+          "prevHash": "a0da1386-c7f3-43d4-8fc4-0ebc6fbcd61f",
+          "data": {
+            "isValid": true,
+            "fee": 20,
+            "gas": 10
+          },
+          "proposeDate": "Dec 31, 2021, 5:47:22 PM"
+        },
+        "block": {
+          "proposeDate": "Dec 31, 2021, 5:47:22 PM",
+          "data": {
+            "isValid": true,
+            "fee": 20,
+            "gas": 10
+          }
+        },
+        "chainBlock": {
+          "height": 15,
+          "hash": "4358b557-7e77-42ea-a765-5356c3071065",
+          "prevHash": "63ac6e87-f734-481c-8fff-7db5b4bb1951",
+          "data": {
+            "isValid": true,
+            "fee": 20,
+            "gas": 10
+          },
+          "proposeDate": "Dec 31, 2021, 5:47:22 PM"
+        },
+        "type": "MINE"
+      },
+      {
+        "parent": {
+          "height": 15,
+          "hash": "4358b557-7e77-42ea-a765-5356c3071065",
+          "prevHash": "63ac6e87-f734-481c-8fff-7db5b4bb1951",
+          "data": {
+            "isValid": true,
+            "fee": 20,
+            "gas": 10
+          },
+          "proposeDate": "Dec 31, 2021, 5:47:22 PM"
+        },
+        "block": {
+          "proposeDate": "Dec 31, 2021, 5:47:22 PM",
+          "data": {
+            "isValid": true,
+            "fee": 20,
+            "gas": 10
+          }
+        },
+        "chainBlock": {
+          "height": 16,
+          "hash": "7ef3650d-7fd8-482e-b88a-da0e0b209bee",
+          "prevHash": "4358b557-7e77-42ea-a765-5356c3071065",
+          "data": {
+            "isValid": true,
+            "fee": 20,
+            "gas": 10
+          },
+          "proposeDate": "Dec 31, 2021, 5:47:22 PM"
+        },
+        "type": "MINE"
+      }
+    ],
+    "ptr": 3
+  },
+  "recentBlocksMaxSize": 6,
+  "players": [
+    {
+      "money": 80,
+      "lastMatchReward": 0,
+      "strategy": {},
+      "id": 0
+    },
+    {
+      "money": 70,
+      "lastMatchReward": 0,
+      "strategy": {},
+      "id": 1
+    },
+    {
+      "strategies": [
+        {},
+        {}
+      ],
+      "strgyRewards": {
+        "list": [
+          30.0,
+          0.0
+        ]
+      },
+      "strgyTries": {
+        "list": [
+          4.0,
+          1.0
+        ]
+      },
+      "strategyIndex": 0,
+      "actions": [
+        {
+          "strtgy": 0,
+          "action": {
+            "parent": {
+              "height": 0,
+              "hash": "1bea9021-6f87-4f2f-85f3-7aa40e2be3fb",
+              "prevHash": "0",
+              "data": {
+                "isValid": true,
+                "fee": 0,
+                "gas": 0
+              },
+              "proposeDate": "Dec 31, 2021, 5:47:22 PM"
+            },
+            "block": {
+              "proposeDate": "Dec 31, 2021, 5:47:22 PM",
+              "data": {
+                "isValid": true,
+                "fee": 20,
+                "gas": 10
+              }
+            },
+            "chainBlock": {
+              "height": 1,
+              "hash": "9bbd1080-76ea-4577-af3d-d01a224148a6",
+              "prevHash": "1bea9021-6f87-4f2f-85f3-7aa40e2be3fb",
+              "data": {
+                "isValid": true,
+                "fee": 20,
+                "gas": 10
+              },
+              "proposeDate": "Dec 31, 2021, 5:47:22 PM"
+            },
+            "type": "MINE"
+          }
+        },
+        {
+          "strtgy": 1,
+          "action": {
+            "parent": {
+              "height": 2,
+              "hash": "9ad4668b-74ee-45e5-ac3f-27ebd92c0bd6",
+              "prevHash": "9bbd1080-76ea-4577-af3d-d01a224148a6",
+              "data": {
+                "isValid": true,
+                "fee": 20,
+                "gas": 10
+              },
+              "proposeDate": "Dec 31, 2021, 5:47:22 PM"
+            },
+            "block": {
+              "proposeDate": "Dec 31, 2021, 5:47:22 PM",
+              "data": {
+                "isValid": false,
+                "fee": 100,
+                "gas": 10
+              }
+            },
+            "chainBlock": {
+              "height": 3,
+              "hash": "0f31c31c-6481-40e6-b23e-6e70393c39bc",
+              "prevHash": "9ad4668b-74ee-45e5-ac3f-27ebd92c0bd6",
+              "data": {
+                "isValid": false,
+                "fee": 100,
+                "gas": 10
+              },
+              "proposeDate": "Dec 31, 2021, 5:47:22 PM"
+            },
+            "type": "MINE"
+          }
+        },
+        {
+          "strtgy": 0,
+          "action": {
+            "parent": {
+              "height": 4,
+              "hash": "cb9f9ac9-ed90-4fcd-b720-38feeaed69fe",
+              "prevHash": "6c839cd9-0674-4abb-a921-a7f72a16a2b3",
+              "data": {
+                "isValid": true,
+                "fee": 20,
+                "gas": 10
+              },
+              "proposeDate": "Dec 31, 2021, 5:47:22 PM"
+            },
+            "block": {
+              "proposeDate": "Dec 31, 2021, 5:47:22 PM",
+              "data": {
+                "isValid": true,
+                "fee": 20,
+                "gas": 10
+              }
+            },
+            "chainBlock": {
+              "height": 5,
+              "hash": "42f2fdd0-cfd8-4aed-aad6-65672b234a7f",
+              "prevHash": "cb9f9ac9-ed90-4fcd-b720-38feeaed69fe",
+              "data": {
+                "isValid": true,
+                "fee": 20,
+                "gas": 10
+              },
+              "proposeDate": "Dec 31, 2021, 5:47:22 PM"
+            },
+            "type": "MINE"
+          }
+        },
+        {
+          "strtgy": 0,
+          "action": {
+            "parent": {
+              "height": 11,
+              "hash": "eaf6fa5d-5577-405d-9829-c9074340960c",
+              "prevHash": "ce57b66b-8283-4469-9caf-0b716a0de5c7",
+              "data": {
+                "isValid": true,
+                "fee": 20,
+                "gas": 10
+              },
+              "proposeDate": "Dec 31, 2021, 5:47:22 PM"
+            },
+            "block": {
+              "proposeDate": "Dec 31, 2021, 5:47:22 PM",
+              "data": {
+                "isValid": true,
+                "fee": 20,
+                "gas": 10
+              }
+            },
+            "chainBlock": {
+              "height": 12,
+              "hash": "20c3a042-30c0-43d0-aa9b-284e03f14d40",
+              "prevHash": "eaf6fa5d-5577-405d-9829-c9074340960c",
+              "data": {
+                "isValid": true,
+                "fee": 20,
+                "gas": 10
+              },
+              "proposeDate": "Dec 31, 2021, 5:47:22 PM"
+            },
+            "type": "MINE"
+          }
+        },
+        {
+          "strtgy": 0,
+          "action": {
+            "parent": {
+              "height": 16,
+              "hash": "7ef3650d-7fd8-482e-b88a-da0e0b209bee",
+              "prevHash": "4358b557-7e77-42ea-a765-5356c3071065",
+              "data": {
+                "isValid": true,
+                "fee": 20,
+                "gas": 10
+              },
+              "proposeDate": "Dec 31, 2021, 5:47:22 PM"
+            },
+            "block": {
+              "proposeDate": "Dec 31, 2021, 5:47:22 PM",
+              "data": {
+                "isValid": true,
+                "fee": 20,
+                "gas": 10
+              }
+            },
+            "chainBlock": {
+              "height": 17,
+              "hash": "aad0bba3-aee6-42c2-b9a1-7cb4d2cb477d",
+              "prevHash": "7ef3650d-7fd8-482e-b88a-da0e0b209bee",
+              "data": {
+                "isValid": true,
+                "fee": 20,
+                "gas": 10
+              },
+              "proposeDate": "Dec 31, 2021, 5:47:22 PM"
+            },
+            "type": "MINE"
+          }
+        }
+      ],
+      "lastCannonIndex": 3,
+      "rand": {
+        "random": {
+          "seed": 119731424729523,
+          "nextNextGaussian": 0.0,
+          "haveNextNextGaussian": false
+        }
+      },
+      "round": 5,
+      "exploitivitiy": 0.8,
+      "money": 0,
+      "lastMatchReward": 0,
+      "strategy": {},
+      "id": 2
+    }
+  ],
+  "round": 20
+}

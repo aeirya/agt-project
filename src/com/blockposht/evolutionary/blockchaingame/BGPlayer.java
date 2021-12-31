@@ -17,8 +17,6 @@ public class BGPlayer extends Player<BlockchainGame> {
     public void getReward(int reward) {
         // if (reward < lastMatchReward) then switch back
         money += reward;
-
-
         // todo: reflect uppon
     }
     
