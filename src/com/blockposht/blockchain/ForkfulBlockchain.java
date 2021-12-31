@@ -1,14 +1,10 @@
-package com.blockposht.blockchain.forkable;
+package com.blockposht.blockchain;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import com.blockposht.blockchain.BlockData;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-
 public class ForkfulBlockchain implements IBlockchain {
-    @JsonSerialize
     private final List<ForkableChain> chains;
 
     public ForkfulBlockchain() {
@@ -98,17 +94,4 @@ public class ForkfulBlockchain implements IBlockchain {
     public IBlock getPredecessor(ChainBlock block) {
         return find(block).get(0).getPredecessor(block);
     }
-
-
-    // public static void main(String[] args) {
-    //     var blockchain = new ForkfulBlockchain();
-    //     blockchain.add(new UserBlock.Dummy());
-    //     blockchain.add(new UserBlock.Dummy());
-    //     blockchain.add(new UserBlock.Dummy());
-
-    //     var chain = blockchain.getLongestChain();
-    //     var prev = chain.getPredecessor(chain.getTip());
-    //     blockchain.add(prev, new UserBlock(new BlockData(false, 2, 3)));
-    //     System.out.println();
-    // }
 }

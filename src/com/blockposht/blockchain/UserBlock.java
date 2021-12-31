@@ -1,9 +1,7 @@
-package com.blockposht.blockchain.forkable;
+package com.blockposht.blockchain;
 
 import java.util.Calendar;
 import java.util.Date;
-
-import com.blockposht.blockchain.BlockData;
 
 public class UserBlock implements IBlock {
     // todo: add proposer user id
@@ -11,17 +9,18 @@ public class UserBlock implements IBlock {
     public final BlockData data;
     public final int userID;
 
-    public UserBlock(Date proposeDate, BlockData data) {
+    public UserBlock(int userID, Date proposeDate, BlockData data) {
         this.proposeDate = proposeDate;
         this.data = data;
+        this.userID = userID;
     }
 
-    public UserBlock(BlockData data) {
-        this(Calendar.getInstance().getTime(), data);
+    public UserBlock(int userID, BlockData data) {
+        this(userID, Calendar.getInstance().getTime(), data);
     }
 
-    public UserBlock(Boolean isValid, int fee, int gas) {
-        this(new BlockData(isValid, fee, gas));
+    public UserBlock(int userID, Boolean isValid, int fee, int gas) {
+        this(userID, new BlockData(isValid, fee, gas));
     }
 
     long computeHash(int height) {
@@ -30,7 +29,11 @@ public class UserBlock implements IBlock {
 
     public static class Dummy extends UserBlock {
         public Dummy() {
-            super(Calendar.getInstance().getTime(), BlockData.validData);
+            this(0);
+        }
+        
+        public Dummy(int id) {
+            super(id, Calendar.getInstance().getTime(), BlockData.validData);
         }
     }
 

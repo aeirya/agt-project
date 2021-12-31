@@ -1,6 +1,8 @@
-package com.blockposht.blockchain;
+package com.blockposht.archive.blockchain2;
 
 import java.util.Date;
+
+import com.blockposht.blockchain.BlockData;
 
 public class Block {
     protected final int height;         // height of the block in the chain

@@ -1,8 +1,6 @@
 package com.blockposht.random;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -50,11 +48,11 @@ public class Vector {
     }
 
     public Double max() {
-        return list.stream().collect(Collectors.maxBy(Comparator.naturalOrder())).get();
+        return list.stream().collect(Collectors.maxBy(Comparator.naturalOrder())).orElse(0.0);
     }
 
     public Double sum() {
-        return list.stream().reduce((a,b) -> a+b).get();
+        return list.stream().reduce((a,b) -> a+b).orElse(0.0);
     }
 
     public Vector normalized() {
@@ -90,7 +88,7 @@ public class Vector {
     }
 
     public Vector div(double x) {
-        return this.mul(((double)1)/x);
+        return this.mul(1.0/x);
     }
 
     @Override
@@ -104,16 +102,5 @@ public class Vector {
 
     public int size() {
         return list.size();
-    }
-
-    public static void main(String[] args) {
-        Double[] nums = {10.0, 40.0, 50.0};
-        List<Double> list = Arrays.asList(nums);
-        var v = new Vector(list);
-        var r = new RandomUtils();
-        for (int i=0; i<10; ++i) {
-            // System.out.println(r);
-        }
-
     }
 }

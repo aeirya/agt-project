@@ -1,28 +1,22 @@
 
 package com.blockposht.evolutionary.blockchaingame;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-import com.blockposht.blockchain.Block;
-import com.blockposht.blockchain.BlockData;
-import com.blockposht.blockchain.SmartChain;
-import com.blockposht.blockchain.forkable.ChainBlock;
-import com.blockposht.blockchain.forkable.ForkableChain;
-import com.blockposht.blockchain.forkable.ForkfulBlockchain;
-import com.blockposht.blockchain.forkable.IBlock;
-import com.blockposht.blockchain.forkable.UserBlock;
+import com.blockposht.blockchain.ChainBlock;
+import com.blockposht.blockchain.ForkableChain;
+import com.blockposht.blockchain.ForkfulBlockchain;
+import com.blockposht.blockchain.IBlock;
 import com.blockposht.evolutionary.Action;
 import com.blockposht.evolutionary.IGame;
-import com.blockposht.evolutionary.Player;
-import com.blockposht.evolutionary.Strategy;
 
 public class BlockchainGame implements IGame {
     private final ForkfulBlockchain chain;
     private final CyclicList<BGActionMine> recentBlocks;
-    private final int recentBlocksMaxSize = 6;
+    private static final int recentBlocksMaxSize = 10;
+
     private final List<BGPlayer> players;
     private int round = 0;
 
@@ -39,33 +33,18 @@ public class BlockchainGame implements IGame {
         recentBlocks.add(act);
     }
     
-    public List<Action> getActions() {
+    public List<Action> getActions(int player) {
         return recentBlocks.getItems().stream().flatMap(
             (BGActionMine act) -> {
                 // todo: convert user block to chain blocks
             IBlock blk = act.getChainblock();
                 return Stream.of(
-                    new BGActionMine(blk, BGGameParameters.genValidBlock()), new BGActionMine(blk, BGGameParameters.genInvalidBlock())
+                    new BGActionMine(blk, BGGameParameters.genValidBlock(player)), new BGActionMine(blk, BGGameParameters.genInvalidBlock(player))
                 );
             }
         ).collect(Collectors.toList());
         // todo: add attack action
     }
-
-
-    // @Override
-    // public List<Action> getActions() {
-    //     var tips = chain.getChainTips();
-    //     List<ChainBlock> prevs = new ArrayList<>();
-    //     for (ChainBlock blk : tips) {
-    //         var ch = chain.findOne(blk);
-    //         var prev = ch.getPredecessor(blk);
-    //         prevs.add(prev);
-    //     }
-        
-    //     tips.stream().map(blk -> chain.findOne(blk))
-    //     .map()
-    // }
 
     @Override
     public void play(Action action, int player) {

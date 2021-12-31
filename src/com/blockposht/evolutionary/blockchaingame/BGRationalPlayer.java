@@ -3,7 +3,7 @@ package com.blockposht.evolutionary.blockchaingame;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.blockposht.blockchain.forkable.ChainBlock;
+import com.blockposht.blockchain.ChainBlock;
 import com.blockposht.evolutionary.Action;
 import com.blockposht.evolutionary.Strategy;
 import com.blockposht.random.RandomUtils;
@@ -53,6 +53,7 @@ public class BGRationalPlayer extends BGPlayer {
     }
 
     private void rethink(BlockchainGame game) {
+        // evaluate reward
         for (int i=lastCannonIndex+1; i<actions.size(); ++i) {
             if (game.isCannon(actions.get(i).getChainblock())) {
                 var act = actions.get(i);

@@ -1,11 +1,8 @@
 package com.blockposht.evolutionary.blockchaingame;
 
 import com.blockposht.evolutionary.Strategy;
-
-import javax.swing.text.html.HTMLDocument.HTMLReader.BlockAction;
-
-import com.blockposht.blockchain.forkable.ChainBlock;
-import com.blockposht.blockchain.forkable.IBlock;
+import com.blockposht.blockchain.ChainBlock;
+import com.blockposht.blockchain.IBlock;
 import com.blockposht.evolutionary.Action;
 
 public class HonestStrategy extends Strategy<BlockchainGame> {
@@ -28,17 +25,7 @@ public class HonestStrategy extends Strategy<BlockchainGame> {
         if (!act.getParent().isValid()) return 0;
         if (!act.getBlock().isValid()) return 0;
 
-        // todo: also check other forks
         ChainBlock longestChainTip = (ChainBlock) env.getMainChainTip();
-        // while (!chosenBlockOfLongestChain.isValid()) {
-        //     chosenBlockOfLongestChain = env.getPredecessor(chosenBlockOfLongestChain);
-        // }
-
-
-        // var longestChains = env.getNextLongestChain(env.getLongestChain());
-        // while (true) {
-        //     longestChains.stream().filter(c -> c.getTip().isValid())
-        // }
 
         for (int h = longestChainTip.getHeight(); h>=0 ;--h) {
             var blocks = env.getBlocks(h);

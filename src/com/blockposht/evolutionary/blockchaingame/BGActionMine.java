@@ -1,9 +1,9 @@
 package com.blockposht.evolutionary.blockchaingame;
 
-import com.blockposht.blockchain.forkable.ChainBlock;
-import com.blockposht.blockchain.forkable.IBlock;
-import com.blockposht.blockchain.forkable.IBlockchain;
-import com.blockposht.blockchain.forkable.UserBlock;
+import com.blockposht.blockchain.ChainBlock;
+import com.blockposht.blockchain.IBlock;
+import com.blockposht.blockchain.IBlockchain;
+import com.blockposht.blockchain.UserBlock;
 
 public class BGActionMine extends BGAction {
     private final IBlock parent;

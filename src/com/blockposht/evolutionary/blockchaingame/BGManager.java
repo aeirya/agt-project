@@ -7,19 +7,18 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-import com.blockposht.blockchain.forkable.ChainBlock;
+import com.blockposht.blockchain.ChainBlock;
 import com.blockposht.evolutionary.Strategy;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.gson.GsonBuilder;
 
 public class BGManager {
     public static void main(String[] args) {
         Random rand = new Random();
-        List<BGPlayer> players = genPopulation(2, 1);
+        List<BGPlayer> players = genPopulation(10, 2);
         BlockchainGame game = new BlockchainGame(players);
         // var strategies = BGStrategies.getAll();
         
-        int rounds = 20;
+        int rounds = 100;
         for (int i=0; i<rounds; ++i) {
             int chosen = rand.nextInt(players.size());
             players.get(chosen).play(game);
@@ -27,21 +26,12 @@ public class BGManager {
 
 
         System.out.println(((ChainBlock)game.getMainChainTip()).getHeight());
-        
-        // try {
-        //     new ObjectMapper().writerWithDefaultPrettyPrinter().writeValue(new File("game.json"), game);
-        // } catch (IOException e) {
-        //     // TODO Auto-generated catch block
-        //     e.printStackTrace();
-        // }
+
 
         var json = new GsonBuilder().setPrettyPrinting().create().toJson(game);
-        try {
-            var fw = new FileWriter(new File("game.json"));
+        try(var fw = new FileWriter(new File("game.json"))) {
             fw.write(json);
-            fw.close();
         } catch (IOException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
 

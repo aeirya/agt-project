@@ -20,6 +20,6 @@ public abstract class Player<E extends IGame> {
     }
 
     protected Action decide(E game) {
-        return strategy.decide(game, game.getActions());
+        return strategy.decide(game, game.getActions(id));
     }
 }

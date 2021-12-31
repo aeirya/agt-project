@@ -1,4 +1,4 @@
-package com.blockposht.blockchain;
+package com.blockposht.archive.blockchain2;
 
 public class SmartChain extends Chain {
     

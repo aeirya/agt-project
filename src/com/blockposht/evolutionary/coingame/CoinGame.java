@@ -76,7 +76,7 @@ public class CoinGame implements IGame {
         }
     }
 
-    public List<Action> getActions() {
+    public List<Action> getActions(int player) {
         return actions;
     }
 

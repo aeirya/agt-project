@@ -18,7 +18,7 @@ public class CoinGamePlayer {
     }
 
     public void play(CoinGame game) {
-        var act = strategy.decide(game, game.getActions());
+        var act = strategy.decide(game, game.getActions(id));
         game.play(act, id);
     }
 

@@ -1,6 +1,5 @@
 package com.blockposht.blockchain;
 
 public interface IBlockchain {
-    void addBlock();
-    
+    ChainBlock add(ChainBlock parent, UserBlock block);
 }

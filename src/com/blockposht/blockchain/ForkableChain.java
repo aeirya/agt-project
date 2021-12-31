@@ -1,4 +1,4 @@
-package com.blockposht.blockchain.forkable;
+package com.blockposht.blockchain;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -2,9 +2,6 @@ package com.blockposht.evolutionary;
 
 import java.util.List;
 
-import com.blockposht.evolutionary.Action;
-
-
 public abstract class Strategy<Environment> {
 
     public Action decide(Environment environment, List<Action> actions) {

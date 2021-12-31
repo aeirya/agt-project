@@ -1,6 +1,4 @@
-package com.blockposht.blockchain.forkable;
-
-import com.blockposht.blockchain.BlockData;
+package com.blockposht.blockchain;
 
 public interface IBlock {
     BlockData getData();

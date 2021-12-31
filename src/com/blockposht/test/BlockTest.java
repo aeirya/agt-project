@@ -1,8 +1,8 @@
 package com.blockposht.test;
 
-import com.blockposht.blockchain.Block;
-import com.blockposht.blockchain.DummyBlock;
-import com.blockposht.blockchain.SmartChain;
+import com.blockposht.archive.blockchain2.Block;
+import com.blockposht.archive.blockchain2.DummyBlock;
+import com.blockposht.archive.blockchain2.SmartChain;
 
 public class BlockTest {
     public static void main(String[] args) {
@@ -14,7 +14,5 @@ public class BlockTest {
         chain.addBlock(testBlock, testBlock2);
         Block forkBlock = new DummyBlock(1, gen.getHash());
         chain.addBlock(gen, forkBlock);
-
-        chain.PrintChain();
     }
 }

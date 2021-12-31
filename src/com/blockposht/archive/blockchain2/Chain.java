@@ -1,4 +1,4 @@
-package com.blockposht.blockchain;
+package com.blockposht.archive.blockchain2;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -9,26 +9,21 @@ import java.util.Map;
 import java.util.logging.Logger;
 import java.util.stream.Collectors;
 
+import com.blockposht.blockchain.BlockData;
 
-import com.blockposht.interfaces.IBlockchain;
-
-public class Chain implements IBlockchain {
-
-    // public interface IBlockmap extends Map<String, Block> {}; 
+public class Chain  {
 
     protected final ArrayList<Map<String, Block>> blocks;
     protected final IBlockEncoder encoder;
-    // private final Random randomGenerator;
 
     public Chain() {
         blocks = new ArrayList<>();
         encoder = new DummyBlockEncoder();
-        // randomGenerator = new Random();
         this.createGenesisBlock();
     }
 
     public Block getGenesis() {
-        return blocks.get(0).values().stream().findFirst().get();
+        return blocks.get(0).values().stream().findFirst().orElse(null);
     }
 
     private Date getTime() {
@@ -37,14 +32,6 @@ public class Chain implements IBlockchain {
 
     public Block getTip() {
         return blocks.get(blocks.size()-1).values().iterator().next();
-        // int i = randomGenerator.nextInt(values.length);
-        // return (Block) values[i];
-    }
-
-    public Block getNextTip(Block blk) {
-        // blocks.get(blk.height);
-        //kfjhdfdkjhf
-        return null;
     }
 
     public Block getPredecessor(Block blk) {
@@ -67,7 +54,8 @@ public class Chain implements IBlockchain {
 
     public void addBlock(Block parent, Block blk) {
         if (blk.height > blocks.size())  {
-            Logger.getGlobal().warning(String.format("block with height %d not supported", blk.height));
+            var warn = String.format("block with height %d not supported", blk.height);
+            Logger.getGlobal().warning(warn);
             return;
         } else {
             saveBlock(blk);
@@ -75,27 +63,11 @@ public class Chain implements IBlockchain {
         blk.previousBlockHash = parent.getHash();
     }
 
-    // public Block findFork(Block blk) {
-
-    // }
-
-    // public Block getNextChain(Block blk) {
-
-    // }
-
     public List<Block> getNext(Block blk) {
         return blocks.get(blk.height+1)
             .values()
             .stream()
             .filter(b -> b.previousBlockHash.equals(blk.getHash()))
             .collect(Collectors.toList());
-    }
-
-    public void PrintChain() {
-        System.out.println(blocks);
-    }
-
-    public static void main(String[] args) {
-        System.out.println( new Chain().blocks.get(1));
     }
 }
