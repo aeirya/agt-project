@@ -1,27 +1,21 @@
 package com.blockposht.evolutionary.blockchaingame;
 
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.OutputStream;
-import java.io.OutputStreamWriter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
 import com.blockposht.blockchain.ChainBlock;
 import com.blockposht.evolutionary.Strategy;
-import com.google.gson.GsonBuilder;
-import com.google.gson.stream.JsonWriter;
+import com.blockposht.utils.serialize.ChainSerializer;
 
 public class BGManager {
     public static void main(String[] args) {
         Random rand = new Random();
-        List<BGPlayer> players = genPopulation(100, 40);
+        List<BGPlayer> players = genPopulation(0, 10);
         BlockchainGame game = new BlockchainGame(players);
         // var strategies = BGStrategies.getAll();
         
-        int rounds = 10000;
+        int rounds = 500;
         for (int i=0; i<rounds; ++i) {
             int chosen = rand.nextInt(players.size());
             players.get(chosen).play(game);
@@ -29,12 +23,10 @@ public class BGManager {
 
 
         System.out.println(((ChainBlock)game.getMainChainTip()).getHeight());
-
-
-        var json = new GsonBuilder().setPrettyPrinting().create().toJson(game);
-        try(var fw = new FileWriter(new File("game.json"))) {
-            fw.write(json);
-        } catch (IOException e) {
+        
+        try(ChainSerializer ser = new ChainSerializer("game.json")) {
+            ser.serialize(game);
+        } catch (Exception e) {
             e.printStackTrace();
         }
 
@@ -62,15 +54,14 @@ public class BGManager {
         return players;
     }
 
-    public void writeJsonStream(OutputStream out, List<Message> messages) throws IOException {
-        JsonWriter writer = new JsonWriter(new OutputStreamWriter(out, "UTF-8"));
-        new GsonBuilder().create().newJsonWriter(new OutputStreamWriter(out)).
-        writer.setIndent("  ");
-        writer.beginArray();
-        for (Message message : messages) {
-            gson.toJson(message, Message.class, writer);
-        }
-        writer.endArray();
-        writer.close();
-    }
+    // public void writeJsonStream(OutputStream out, List<Message> messages) throws IOException {
+    //     JsonWriter writer = new JsonWriter(new OutputStreamWriter(out, "UTF-8"));
+    //     writer.setIndent("  ");
+    //     writer.beginArray();
+    //     for (Message message : messages) {
+    //         gson.toJson(message, Message.class, writer);
+    //     }
+    //     writer.endArray();
+    //     writer.close();
+    // }
 }

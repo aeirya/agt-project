@@ -1,10 +1,14 @@
 package com.blockposht.blockchain;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class ForkfulBlockchain implements IBlockchain {
+import com.blockposht.utils.serialize.ISerializable;
+import com.blockposht.utils.serialize.ISerializer;
+
+public class ForkfulBlockchain implements IBlockchain, ISerializable {
     private final List<ForkableChain> chains;
 
     public ForkfulBlockchain() {
@@ -93,5 +97,10 @@ public class ForkfulBlockchain implements IBlockchain {
     
     public IBlock getPredecessor(ChainBlock block) {
         return find(block).get(0).getPredecessor(block);
+    }
+
+    @Override
+    public void serialize(ISerializer ser) throws IOException {
+        ser.serialize(chains);
     }
 }

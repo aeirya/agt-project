@@ -1,11 +1,15 @@
 package com.blockposht.utils;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class Vector {
+import com.blockposht.utils.serialize.ISerializable;
+import com.blockposht.utils.serialize.ISerializer;
+
+public class Vector implements ISerializable {
     public final List<Double> list;
 
     public static Vector zeros(int n) {
@@ -103,4 +107,10 @@ public class Vector {
     public int size() {
         return list.size();
     }
+
+    @Override
+    public void serialize(ISerializer ser) throws IOException {
+        ser.serialize(list);
+    }
+
 }

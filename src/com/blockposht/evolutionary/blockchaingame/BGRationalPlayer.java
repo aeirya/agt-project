@@ -1,5 +1,6 @@
 package com.blockposht.evolutionary.blockchaingame;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -8,6 +9,8 @@ import com.blockposht.evolutionary.Action;
 import com.blockposht.evolutionary.Strategy;
 import com.blockposht.utils.Vector;
 import com.blockposht.utils.random.RandomUtils;
+import com.blockposht.utils.serialize.ISerializable;
+import com.blockposht.utils.serialize.ISerializer;
 
 public class BGRationalPlayer extends BGPlayer {
     private final List<Strategy<BlockchainGame>> strategies;
@@ -22,6 +25,7 @@ public class BGRationalPlayer extends BGPlayer {
     private int round = 0;
 
     private float exploitivitiy = 0.8f;
+    boolean strategyRotationOrder = true;
 
     public BGRationalPlayer(int id, List<Strategy<BlockchainGame>> strategies) {
         super(id, strategies.get(0));
@@ -32,6 +36,11 @@ public class BGRationalPlayer extends BGPlayer {
         actions = new ArrayList<>();
 
         rand = new RandomUtils();
+    }
+
+    public BGRationalPlayer(int id, List<Strategy<BlockchainGame>> strategies, boolean strategyRotationOrder) {
+        this(id, strategies);
+        this.strategyRotationOrder = strategyRotationOrder;
     }
 
     @Override
@@ -67,9 +76,12 @@ public class BGRationalPlayer extends BGPlayer {
     protected Action decide(BlockchainGame game) {
         // todo: change strategy here
         if (round < strategies.size()) {
-            this.strategyIndex = round;
+            if (strategyRotationOrder)
+                this.strategyIndex = round;
+            else
+                this.strategyIndex = strategies.size()-round-1;
         } else {
-            if (rand.nextDouble() <= (1-exploitivitiy)* Math.exp(-round)) {
+            if (rand.nextDouble() <= (1-exploitivitiy)* Math.exp(-round/50.0)) {
                 this.strategyIndex = rand.choose(strgyRewards.divide(strgyTries));
             } else {
                 this.strategyIndex = rand.getRandom().nextInt(strategies.size());
@@ -93,7 +105,7 @@ public class BGRationalPlayer extends BGPlayer {
         strgyTries.set(strategy, strgyTries.get(strategy)+1);
 }
 
-    static class RationalPlayerMineAction {
+    static class RationalPlayerMineAction implements ISerializable {
         final int strtgy;
         final BGActionMine action;
 
@@ -106,6 +118,19 @@ public class BGRationalPlayer extends BGPlayer {
             return action.getChainblock();
         }
 
+        @Override
+        public void serialize(ISerializer ser) throws IOException {
+            ser.write(this, RationalPlayerMineAction.class);
+        }
+
+    }
+
+    @Override
+    public void serialize(ISerializer ser) throws IOException {
+        super.serialize(ser);
+        ser.serialize(strgyRewards);
+        ser.serialize(strgyTries);
+        ser.serialize(actions);
     }
 
 }

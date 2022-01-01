@@ -1,6 +1,8 @@
 
 package com.blockposht.evolutionary.blockchaingame;
 
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -11,8 +13,10 @@ import com.blockposht.blockchain.ForkfulBlockchain;
 import com.blockposht.blockchain.IBlock;
 import com.blockposht.evolutionary.Action;
 import com.blockposht.evolutionary.IGame;
+import com.blockposht.utils.serialize.ISerializable;
+import com.blockposht.utils.serialize.ISerializer;
 
-public class BlockchainGame implements IGame {
+public class BlockchainGame implements IGame, ISerializable {
     private final ForkfulBlockchain chain;
     private final CyclicList<BGActionMine> recentBlocks;
     private static final int recentBlocksMaxSize = 10;
@@ -82,7 +86,7 @@ public class BlockchainGame implements IGame {
         if (block == null) return false;
 
         var ch = chain.getLongestChain();
-        return (ch.contains(block) && ch.size() - block.getHeight() > 0);
+        return (ch.contains(block) && ch.size() - block.getHeight() > 5);
     }
 
     public ForkableChain getLongestChain() {
@@ -95,6 +99,20 @@ public class BlockchainGame implements IGame {
 
     public List<ChainBlock> getBlocks(int height) {
         return chain.get(height);
+    }
+
+    @Override
+    public void serialize(ISerializer ser) throws IOException {
+        List<ISerializable> l = new ArrayList<>();
+        l.add(chain);
+        l.add(s -> players.forEach(p -> {
+            try {
+                p.serialize(s);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }));
+        ser.serialize(l);
     }
     
 }

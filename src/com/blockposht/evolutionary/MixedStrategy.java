@@ -2,7 +2,7 @@ package com.blockposht.evolutionary;
 
 import java.util.List;
 
-public class MixedStrategy<E> extends Strategy {
+public class MixedStrategy<E> extends Strategy<E> {
     private List<Strategy<E>> strategies;
     private List<Float> p;
 

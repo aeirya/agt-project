@@ -1,10 +1,14 @@
 package com.blockposht.blockchain;
 
+import java.io.IOException;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.UUID;
 
-public class ChainBlock implements IBlock {
+import com.blockposht.utils.serialize.ISerializable;
+import com.blockposht.utils.serialize.ISerializer;
+
+public class ChainBlock implements IBlock, ISerializable {
     int height;
     String hash;
     String prevHash;  // hash of previous block
@@ -60,6 +64,11 @@ public class ChainBlock implements IBlock {
 
     public int getHeight() {
         return height;
+    }
+
+    @Override
+    public void serialize(ISerializer ser) throws IOException {
+        ser.write(this, ChainBlock.class);
     }
     
 }

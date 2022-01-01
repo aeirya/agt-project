@@ -1,9 +1,13 @@
 package com.blockposht.blockchain;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ForkableChain {
+import com.blockposht.utils.serialize.ISerializable;
+import com.blockposht.utils.serialize.ISerializer;
+
+public class ForkableChain implements ISerializable {
     private final ForkableChain forkedChain;
     private final int forkedChainSize;
 
@@ -68,6 +72,12 @@ public class ForkableChain {
 
     public boolean contains(ChainBlock block) {
         return block.equals(get(block.height));
+    }
+
+    @Override
+    public void serialize(ISerializer ser) throws IOException {
+        // todo: recheck this
+        ser.serialize(chain);
     }
 }
 
