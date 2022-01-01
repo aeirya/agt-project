@@ -11,8 +11,8 @@ public interface ISerializer extends AutoCloseable {
     void close() throws Exception;
 
     // todo: rename to begin array
-    void beginObject() throws IOException;
-    void endObject() throws IOException;
+    void beginArray() throws IOException;
+    void endArray() throws IOException;
 
     void name(String name) throws IOException;
 }

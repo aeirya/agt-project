@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 import com.blockposht.utils.serialize.ISerializable;
 import com.blockposht.utils.serialize.ISerializer;
@@ -35,6 +36,29 @@ public class Vector implements ISerializable {
         this.list = list;
     }
 
+    /** add vectors */
+    public Vector add(Vector vec) {
+        return new Vector(
+            IntStream
+                .range(0, size())
+                .mapToObj(i->get(i)+vec.get(i))
+                .collect(Collectors.toList())
+            );
+    }
+
+    /** mult vector and scalar */
+    public Vector mult(double scalar) {
+        return new Vector(
+            list.stream().map(i -> i*scalar).collect(Collectors.toList())
+        );
+    }
+
+    /** sliding mean with vec, with weight of beta */
+    public Vector slidingMean(Vector vec, float beta) {
+        return this.mult((1-beta)).add(vec.mul(beta));
+    }
+
+    /** add item */
     public void add(Double item) {
         list.add(item);
     }

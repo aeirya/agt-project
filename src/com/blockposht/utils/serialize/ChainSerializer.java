@@ -67,13 +67,11 @@ public class ChainSerializer implements ISerializer {
         gson.toJson(item, item.getClass() , writer);    
     }
 
-    public void beginObject() throws IOException {
-        // writer.beginObject();
+    public void beginArray() throws IOException {
         writer.beginArray();
     }
 
-    public void endObject() throws IOException {
-        // writer.endObject();
+    public void endArray() throws IOException {
         writer.endArray();
     }
 
@@ -82,11 +80,12 @@ public class ChainSerializer implements ISerializer {
     }
 
     public static void main(String[] args) throws IOException {
-        var ser = new ChainSerializer("test.json");
-        ser.writer.beginObject();
-        ser.writer.name("field");
-        ser.writer.value("hello");
-        ser.writer.endObject();
-        ser.writer.flush();
+        try (var ser = new ChainSerializer("test.json")) {
+            ser.writer.beginObject();
+            ser.writer.name("field");
+            ser.writer.value("hello");
+            ser.writer.endObject();
+            ser.writer.flush();
+        }
     }
 }

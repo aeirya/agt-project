@@ -12,6 +12,10 @@ public class RandomUtils {
         random = new Random();
     }
 
+    public RandomUtils(Random random) {
+        this.random = random;
+    }
+
     public int choose(Vector weights) {
         double x = random.nextDouble();
         var v = weights;
@@ -30,6 +34,10 @@ public class RandomUtils {
 
     public double nextDouble() {
         return random.nextDouble();
+    }
+
+    public int nextInt(int bound) {
+        return random.nextInt(bound);
     }
 
     public Random getRandom() {
