@@ -3,6 +3,8 @@ package com.blockposht.evolutionary.blockchaingame;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.OutputStream;
+import java.io.OutputStreamWriter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -10,6 +12,7 @@ import java.util.Random;
 import com.blockposht.blockchain.ChainBlock;
 import com.blockposht.evolutionary.Strategy;
 import com.google.gson.GsonBuilder;
+import com.google.gson.stream.JsonWriter;
 
 public class BGManager {
     public static void main(String[] args) {
@@ -57,5 +60,17 @@ public class BGManager {
             players.add(new BGRationalPlayer(id++, S));
 
         return players;
+    }
+
+    public void writeJsonStream(OutputStream out, List<Message> messages) throws IOException {
+        JsonWriter writer = new JsonWriter(new OutputStreamWriter(out, "UTF-8"));
+        new GsonBuilder().create().newJsonWriter(new OutputStreamWriter(out)).
+        writer.setIndent("  ");
+        writer.beginArray();
+        for (Message message : messages) {
+            gson.toJson(message, Message.class, writer);
+        }
+        writer.endArray();
+        writer.close();
     }
 }
