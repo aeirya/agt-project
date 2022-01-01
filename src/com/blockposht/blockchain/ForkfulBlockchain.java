@@ -27,6 +27,10 @@ public class ForkfulBlockchain implements IBlockchain, ISerializable {
             .collect(Collectors.toList());
     }
 
+    public ChainBlock getOne(int height) {
+        return get(height).get(0);
+    }
+
     public List<ChainBlock> getChainTips() {
         return chains.stream()
             .map(ForkableChain::getTip)
@@ -87,8 +91,8 @@ public class ForkfulBlockchain implements IBlockchain, ISerializable {
         }
     }
 
-    public void add(UserBlock block) {
-        getLongestChain().add(block);
+    public ChainBlock add(UserBlock block) {
+        return getLongestChain().add(block);
     }
 
     public IBlock getPredecessor(IBlock block) {

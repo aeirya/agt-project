@@ -6,11 +6,9 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
-import java.util.stream.Stream;
 
 import com.blockposht.blockchain.ChainBlock;
 import com.blockposht.blockchain.ForkableChain;
-import com.blockposht.blockchain.IBlockchain;
 import com.blockposht.evolutionary.Action;
 import com.blockposht.evolutionary.Strategy;
 
@@ -43,6 +41,7 @@ public class ProMaliciousStrategy extends Strategy<BlockchainGame> {
         var chains = env.getChains().stream().filter(c -> isAcceptableHeight(c.size(), H)).collect(Collectors.toList()); 
         
         var firstForkedChain = chains.stream().reduce((x,y)->x.findCommonForkedChain(y)).orElseThrow();
+        // todo: change i formula
         int i = firstForkedChain.getForkHeight();
 
         var blk = act.getParent();
@@ -96,6 +95,6 @@ public class ProMaliciousStrategy extends Strategy<BlockchainGame> {
     }
 
     private boolean isAcceptableHeight(int height, int longestChainSize) {
-        return height + 5 > longestChainSize;
+        return height + 4 > longestChainSize;
     }
 }

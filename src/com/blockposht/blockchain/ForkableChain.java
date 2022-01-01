@@ -3,6 +3,8 @@ package com.blockposht.blockchain;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
 
 import com.blockposht.utils.serialize.ISerializable;
 import com.blockposht.utils.serialize.ISerializer;
@@ -95,9 +97,21 @@ public class ForkableChain implements ISerializable {
         else return this.findCommonForkedChain(other.forkedChain);
     }
 
-    /* the height in which this chain forked started */
+    public Entry<Integer, ForkableChain> findKnot(ForkableChain other) {
+        if (this == other) 
+            return Map.entry(size()-1, this);
+        if (this.forkedChainSize > other.forkedChainSize)
+            return other.findKnot(this);
+        if (other.forkedChain == this)
+            return Map.entry(other.forkedChainSize, this);
+        return other.forkedChain.findKnot(this);
+    }
+
+    /**
+     *  the height in which this chain forked started
+    */
     public int getForkHeight() {
-        return forkedChainSize + 1;
+        return forkedChainSize;
     }
 
     @Override

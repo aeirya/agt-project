@@ -29,7 +29,7 @@ public class UserBlock implements IBlock {
 
     public static class Dummy extends UserBlock {
         public Dummy() {
-            this(0);
+            this(-1);
         }
         
         public Dummy(int id) {
