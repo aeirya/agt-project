@@ -1,6 +1,8 @@
-package com.blockposht.random;
+package com.blockposht.utils.random;
 
 import java.util.Random;
+
+import com.blockposht.utils.Vector;
 
 public class RandomUtils {
 

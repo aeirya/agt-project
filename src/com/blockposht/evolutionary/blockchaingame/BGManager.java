@@ -14,11 +14,11 @@ import com.google.gson.GsonBuilder;
 public class BGManager {
     public static void main(String[] args) {
         Random rand = new Random();
-        List<BGPlayer> players = genPopulation(10, 2);
+        List<BGPlayer> players = genPopulation(100, 40);
         BlockchainGame game = new BlockchainGame(players);
         // var strategies = BGStrategies.getAll();
         
-        int rounds = 100;
+        int rounds = 10000;
         for (int i=0; i<rounds; ++i) {
             int chosen = rand.nextInt(players.size());
             players.get(chosen).play(game);

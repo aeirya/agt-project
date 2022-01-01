@@ -1,4 +1,4 @@
-package com.blockposht.random;
+package com.blockposht.utils;
 
 import java.util.ArrayList;
 import java.util.Comparator;

@@ -6,8 +6,8 @@ import java.util.List;
 import com.blockposht.blockchain.ChainBlock;
 import com.blockposht.evolutionary.Action;
 import com.blockposht.evolutionary.Strategy;
-import com.blockposht.random.RandomUtils;
-import com.blockposht.random.Vector;
+import com.blockposht.utils.Vector;
+import com.blockposht.utils.random.RandomUtils;
 
 public class BGRationalPlayer extends BGPlayer {
     private final List<Strategy<BlockchainGame>> strategies;
