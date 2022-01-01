@@ -72,6 +72,7 @@ public class BGRationalPlayer extends BGPlayer {
         }
     }
 
+    int counter = 0;
     @Override
     protected Action decide(BlockchainGame game) {
         // todo: change strategy here
@@ -82,14 +83,19 @@ public class BGRationalPlayer extends BGPlayer {
                 this.strategyIndex = strategies.size()-round-1;
         } else {
             if (rand.nextDouble() <= (1-exploitivitiy)* Math.exp(-round/50.0)) {
-                this.strategyIndex = rand.choose(strgyRewards.divide(strgyTries));
-            } else {
                 this.strategyIndex = rand.getRandom().nextInt(strategies.size());
+            } else {
+                this.strategyIndex = rand.choose(strgyRewards.divide(strgyTries));
             }
         }
         this.strategy = strategies.get(strategyIndex);
 
-        return super.decide(game);
+        var action = super.decide(game);
+        var a = (BGActionMine) action;
+        if (!a.getParent().isValid() && a.getBlock().isValid()) {
+            System.out.println("doing something :)) " + String.valueOf(counter++));
+        }
+        return action;
     }
 
     private void remember(Action act) {
@@ -127,10 +133,14 @@ public class BGRationalPlayer extends BGPlayer {
 
     @Override
     public void serialize(ISerializer ser) throws IOException {
-        super.serialize(ser);
+        // super.serialize(ser);
+        ser.beginObject();
+        // ser.name("rewards");
         ser.serialize(strgyRewards);
+        // ser.name("tries");
         ser.serialize(strgyTries);
         ser.serialize(actions);
+        ser.endObject();
     }
 
 }

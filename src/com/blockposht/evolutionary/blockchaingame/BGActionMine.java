@@ -16,8 +16,8 @@ public class BGActionMine extends BGAction {
         this.block = block;
     }
 
-    public IBlock getParent() {
-        return parent;
+    public ChainBlock getParent() {
+        return (ChainBlock) parent;
     }
 
     public IBlock getBlock() {

@@ -9,4 +9,10 @@ public interface ISerializer extends AutoCloseable {
     <T> void serialize(T item);
     <T> void write(T item, Class<T> clazz);
     void close() throws Exception;
+
+    // todo: rename to begin array
+    void beginObject() throws IOException;
+    void endObject() throws IOException;
+
+    void name(String name) throws IOException;
 }

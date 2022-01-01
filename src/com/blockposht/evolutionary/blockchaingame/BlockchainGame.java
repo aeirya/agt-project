@@ -101,6 +101,10 @@ public class BlockchainGame implements IGame, ISerializable {
         return chain.get(height);
     }
 
+    public List<ForkableChain> getChains() {
+        return chain.getChains();
+    }
+
     @Override
     public void serialize(ISerializer ser) throws IOException {
         List<ISerializable> l = new ArrayList<>();

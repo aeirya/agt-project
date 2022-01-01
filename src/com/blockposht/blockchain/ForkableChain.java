@@ -74,6 +74,32 @@ public class ForkableChain implements ISerializable {
         return block.equals(get(block.height));
     }
 
+    public boolean isForkOf(ForkableChain chain) {
+        return forkedChain == chain;
+    }
+
+    public boolean isRecentForkOf(ForkableChain chain, int maxHeightDiffrence) {
+        return isForkOf(chain) && (this.chain.size()<=maxHeightDiffrence);
+    }
+
+    public ForkableChain findCommonForkedChain(ForkableChain other) {
+        // todo: test this
+        if (other == this) 
+            return this;
+        if (other.forkedChain == this)
+            return this;
+        if (this.forkedChain == other)
+            return this;
+        if (this.forkedChainSize > other.forkedChainSize)
+            return other.findCommonForkedChain(forkedChain);
+        else return this.findCommonForkedChain(other.forkedChain);
+    }
+
+    /* the height in which this chain forked started */
+    public int getForkHeight() {
+        return forkedChainSize + 1;
+    }
+
     @Override
     public void serialize(ISerializer ser) throws IOException {
         // todo: recheck this

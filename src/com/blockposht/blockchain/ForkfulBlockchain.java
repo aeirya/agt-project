@@ -99,6 +99,10 @@ public class ForkfulBlockchain implements IBlockchain, ISerializable {
         return find(block).get(0).getPredecessor(block);
     }
 
+    public List<ForkableChain> getChains() {
+        return chains;
+    }
+
     @Override
     public void serialize(ISerializer ser) throws IOException {
         ser.serialize(chains);

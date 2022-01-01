@@ -66,4 +66,27 @@ public class ChainSerializer implements ISerializer {
     public <T> void serialize(T item) {
         gson.toJson(item, item.getClass() , writer);    
     }
+
+    public void beginObject() throws IOException {
+        // writer.beginObject();
+        writer.beginArray();
+    }
+
+    public void endObject() throws IOException {
+        // writer.endObject();
+        writer.endArray();
+    }
+
+    public void name(String name) throws IOException {
+        writer.name(name);
+    }
+
+    public static void main(String[] args) throws IOException {
+        var ser = new ChainSerializer("test.json");
+        ser.writer.beginObject();
+        ser.writer.name("field");
+        ser.writer.value("hello");
+        ser.writer.endObject();
+        ser.writer.flush();
+    }
 }

@@ -66,6 +66,10 @@ public class ChainBlock implements IBlock, ISerializable {
         return height;
     }
 
+    public int getUserID() {
+        return userID;
+    }
+
     @Override
     public void serialize(ISerializer ser) throws IOException {
         ser.write(this, ChainBlock.class);
