@@ -1,0 +1,5 @@
+- features to be added
+- [ ] different hash powers
+- [ ] transactions
+- [ ] mining pools
+- [ ] evolution of players
