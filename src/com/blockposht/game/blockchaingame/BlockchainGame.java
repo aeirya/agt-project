@@ -13,6 +13,7 @@ import com.blockposht.blockchain.ForkfulBlockchain;
 import com.blockposht.blockchain.IBlock;
 import com.blockposht.game.Action;
 import com.blockposht.game.IGame;
+import com.blockposht.game.Player;
 import com.blockposht.utils.serialize.ISerializable;
 import com.blockposht.utils.serialize.ISerializer;
 
@@ -21,10 +22,10 @@ public class BlockchainGame implements IGame, ISerializable {
     private final CyclicList<BGActionMine> recentBlocks;
     private static final int recentBlocksMaxSize = 10;
 
-    private final List<BGPlayer> players;
+    private final List<Player<BlockchainGame>> players;
     private int round = 0;
 
-    public BlockchainGame(List<BGPlayer> players) {
+    public BlockchainGame(List<Player<BlockchainGame>> players) {
         chain = new ForkfulBlockchain();
         this.players = players;
         recentBlocks = new CyclicList<>(recentBlocksMaxSize);
@@ -67,10 +68,11 @@ public class BlockchainGame implements IGame, ISerializable {
         action.setChainBlock(cb);
 
         recentBlocks.add(action);
+        
         // todo: change reward system
-        players.get(player).getReward(
-            action.getBlock().getReward()
-        );
+        // players.get(player).getReward(
+        //     action.getBlock().getReward()
+        // );
 
     }
 
@@ -105,13 +107,17 @@ public class BlockchainGame implements IGame, ISerializable {
         return chain.getChains();
     }
 
+    public BlockchainGameState getState() {
+        return new BlockchainGameState(chain, recentBlocks.getItems(), players);
+    }
+
     @Override
     public void serialize(ISerializer ser) throws IOException {
         List<ISerializable> l = new ArrayList<>();
         l.add(chain);
         l.add(s -> players.forEach(p -> {
             try {
-                p.serialize(s);
+                ((BGPlayer) p).serialize(s);
             } catch (IOException e) {
                 e.printStackTrace();
             }

@@ -12,7 +12,7 @@ public class BGPlayer extends Player<BlockchainGame> implements ISerializable {
     private int money;
     private int lastMatchReward;
     
-    protected BGPlayer(int id, Strategy<BlockchainGame> strategy) {
+    public BGPlayer(int id, Strategy<BlockchainGame> strategy) {
         super(id, strategy);
         money = 0;
     }
