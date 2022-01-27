@@ -1,16 +1,18 @@
 package com.blockposht.simulation;
 
 import java.util.List;
-import java.util.Random;
 
 import com.blockposht.game.Player;
 import com.blockposht.game.blockchaingame.BlockchainGame;
+import com.blockposht.utils.Vector;
+import com.blockposht.utils.random.RandomUtils;
 import com.blockposht.utils.serialize.ISerializable;
 
 public class BlockchainSimulation extends GameSimulation<BlockchainGame> {
 
-    private final Random rand;
-    
+    private final RandomUtils rand;
+    private Vector hashPowerDist;
+
     public BlockchainSimulation(IPopulationGenerator<Player<BlockchainGame>> generator) {
         this(generator.generatePopulation());
     }
@@ -21,7 +23,7 @@ public class BlockchainSimulation extends GameSimulation<BlockchainGame> {
             players
         );
 
-        rand = new Random();
+        rand = new RandomUtils();
     }
 
     /**
@@ -29,7 +31,8 @@ public class BlockchainSimulation extends GameSimulation<BlockchainGame> {
      */
     @Override
     public void go() {
-        int chosen = rand.nextInt(players.size());
+        hashPowerDist = rand.randomVector(players.size());
+        int chosen = rand.choose(hashPowerDist);
         players.get(chosen).play(game);
     }
 

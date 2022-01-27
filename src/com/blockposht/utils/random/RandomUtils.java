@@ -28,7 +28,8 @@ public class RandomUtils {
 
         for (int i=0; i<v.size(); ++i) {
             if (v.get(i)>=x) return i;
-        }  
+        }
+          
         return -1;
     }
 
@@ -38,6 +39,14 @@ public class RandomUtils {
 
     public int nextInt(int bound) {
         return random.nextInt(bound);
+    }
+
+    public Vector randomVector(int n) {
+        Vector v = new Vector();
+        for (int i=0; i<n; ++i) {
+            v.add(random.nextInt());
+        }
+        return v.normalized();
     }
 
     public Random getRandom() {
